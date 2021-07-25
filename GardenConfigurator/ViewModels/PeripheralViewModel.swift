@@ -6,14 +6,30 @@
 //
 
 import Foundation
-
+import CoreBluetooth
 
 class PeripheralViewModel: ObservableObject {
     
-    init(mockDevice: MockPeripheral) {
-        self.mockDevice = mockDevice
+    init(device: CBPeripheral, bleController: BleContoller) {
+        self.device = device
+        self.bleController = bleController
+        print("init")
     }
     
-    @Published var mockDevice: MockPeripheral
+    @Published var device: CBPeripheral
+    
+    private let bleController: BleContoller
+    
+    // ssid collected from the form 
+    var ssid: String = ""
+    
+    // password collected from the form 
+    var password: String = ""
+    
+    /// connect to ble device [device]
+    func connect() {
+        #warning("change is mock in production")
+        device = bleController.connect(peripheral: device, isMock: true) as! CBPeripheral
+    }
     
 }

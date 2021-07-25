@@ -19,17 +19,19 @@ struct BluetoothsView: View {
             VStack {
                 
                 List {
-                    ForEach(self.viewModel.mockDevices, content: { device in
+                    ForEach(self.viewModel.devices, content: { device in
                         
                         Button(action: {
-                            self.viewModel.isSheetPresented = !self.viewModel.isSheetPresented
+                            self.viewModel.selectedDevice = device
                         }) {
                             HStack {
-                                Text(device.name)
-                                Text(device.status)
+                                Text("\(device.name == nil ? "not known" : device.name!)")
                             }
-                        }.sheet(isPresented: self.$viewModel.isSheetPresented, content: {
-                            PeripheralView(viewModel: PeripheralViewModel(mockDevice: device))
+                        }.sheet(item: self.$viewModel.selectedDevice, content: { selectedDevice in
+                            
+                            PeripheralView(viewModel: ViewModelFactory.makePeripheralViewModel(device: selectedDevice))
+                        
+                            
                         })
                         
                     })

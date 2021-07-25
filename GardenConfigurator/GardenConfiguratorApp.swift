@@ -10,11 +10,10 @@ import SwiftUI
 @main
 struct GardenConfiguratorApp: App {
     
-    let viewModelFactory = ViewModelFactory()
     
     var body: some Scene {
         WindowGroup {
-            ContentView(bluetoothsViewModel: viewModelFactory.makeBluetoothViewModel())
+            ContentView(bluetoothsViewModel: ViewModelFactory.makeBluetoothViewModel())
         }
     }
 }

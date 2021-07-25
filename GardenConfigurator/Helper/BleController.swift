@@ -38,8 +38,34 @@ class BleContoller: NSObject, CBCentralManagerDelegate {
         self.onDiscoverSubject?.send(self.devices)
     }
     
+    #warning("da implementare")
+    func centralManager(_ central: CBCentralManager, didConnect peripheral: CBPeripheral) {
+        print("empty")
+    }
+    
+    #warning("da implementare")
+    func centralManager(_ central: CBCentralManager, didFailToConnect peripheral: CBPeripheral, error: Error?) {
+        print("empty")
+    }
+    
     func centralManagerDidUpdateState(_ central: CBCentralManager) {
         manager = central
+    }
+    
+    /**
+            - Parameters:
+                - isMock: true means it is a mocck state 
+                - peripheral: device to connect
+    */
+    func connect(peripheral: CBPeripheral, isMock: Bool = false) -> Any {
+        if isMock {
+            // nel caso di mock name non puo essere nulla
+            let mockPeripheral = MockPeripheral(name: peripheral.name!, state: .connected)
+            return mockPeripheral
+        } else {
+            #warning("da implementare")
+            return "To be implemented"
+        }
     }
     
     func scanPeriphelars() {

@@ -14,11 +14,8 @@ class BluetoothsViewModel: ObservableObject {
     
     @Published var devices: [CBPeripheral] = []
     
-    /// used for mock functionality
-    @Published var mockDevices: [MockPeripheral] = []
-    
-    /// var associated with each sheet of device in list 
-    @Published var isSheetPresented = false
+    /// selcted device from list of [devices] used to track sheet changes
+    @Published var selectedDevice: CBPeripheral?
     
     private let bleController: BleContoller
     
@@ -28,8 +25,9 @@ class BluetoothsViewModel: ObservableObject {
         
         self.bleController = bleController
         
+        // mock devices 
         for i in 1...3 {
-            self.mockDevices.append(MockPeripheral(id: i, name: "Test", status: "Disconnected"))
+            self.devices.append(MockPeripheral(name: "Test\(i)", state: .disconnected))
         }
         // mi metto in ascolto dell aggiornamento sui devices
         self.subscription = self.bleController.onDiscoverPublisher?.sink(receiveValue: { devices in
