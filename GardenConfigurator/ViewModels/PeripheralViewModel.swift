@@ -10,15 +10,20 @@ import CoreBluetooth
 
 class PeripheralViewModel: ObservableObject {
     
-    init(device: CBPeripheral, bleController: BleContoller) {
+    init(device: MockPeripheral, bleController: BleContoller, dbHelper: DbHelper) {
         self.device = device
         self.bleController = bleController
+        self.dbHelper = dbHelper
         print("init")
     }
     
-    @Published var device: CBPeripheral
+    @Published var device: MockPeripheral
+    
+    @Published var isSaveAlertShown: Bool = false
     
     private let bleController: BleContoller
+    
+    private let dbHelper: DbHelper
     
     // ssid collected from the form 
     var ssid: String = ""
@@ -28,8 +33,12 @@ class PeripheralViewModel: ObservableObject {
     
     /// connect to ble device [device]
     func connect() {
-        #warning("change is mock in production")
-        device = bleController.connect(peripheral: device, isMock: true) as! CBPeripheral
+        //TODO: change is mock in production and add peripheral
+        device = bleController.connect(peripheral: nil, mockPeripheral: device, isMock: true) as! MockPeripheral
+    }
+    
+    func saveDevice() {
+        dbHelper.createData(peripheralName: device.name)
     }
     
 }

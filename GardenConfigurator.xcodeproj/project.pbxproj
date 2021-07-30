@@ -22,6 +22,8 @@
 		C2A1AFE92682500E0095719E /* MockPeripheral.swift in Sources */ = {isa = PBXBuildFile; fileRef = C2A1AFE82682500E0095719E /* MockPeripheral.swift */; };
 		C2A1AFF1268253A30095719E /* PeripheralViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = C2A1AFF0268253A30095719E /* PeripheralViewModel.swift */; };
 		C2A1AFFE2682540C0095719E /* PeripheralView.swift in Sources */ = {isa = PBXBuildFile; fileRef = C2A1AFFD2682540C0095719E /* PeripheralView.swift */; };
+		C2B46E7326B1B06100F92B2C /* PeripheralModel.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = C2B46E7126B1B06100F92B2C /* PeripheralModel.xcdatamodeld */; };
+		C2B46E7626B1B49900F92B2C /* dbHelper.swift in Sources */ = {isa = PBXBuildFile; fileRef = C2B46E7526B1B49900F92B2C /* dbHelper.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -63,6 +65,8 @@
 		C2A1AFE82682500E0095719E /* MockPeripheral.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MockPeripheral.swift; sourceTree = "<group>"; };
 		C2A1AFF0268253A30095719E /* PeripheralViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PeripheralViewModel.swift; sourceTree = "<group>"; };
 		C2A1AFFD2682540C0095719E /* PeripheralView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PeripheralView.swift; sourceTree = "<group>"; };
+		C2B46E7226B1B06100F92B2C /* PeripheralModel.xcdatamodel */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcdatamodel; path = PeripheralModel.xcdatamodel; sourceTree = "<group>"; };
+		C2B46E7526B1B49900F92B2C /* dbHelper.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = dbHelper.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -184,9 +188,19 @@
 		C2426736262A105F00517496 /* Helper */ = {
 			isa = PBXGroup;
 			children = (
+				C2B46E7426B1B06B00F92B2C /* database */,
 				C242672E262A0D8300517496 /* BleController.swift */,
 			);
 			path = Helper;
+			sourceTree = "<group>";
+		};
+		C2B46E7426B1B06B00F92B2C /* database */ = {
+			isa = PBXGroup;
+			children = (
+				C2B46E7126B1B06100F92B2C /* PeripheralModel.xcdatamodeld */,
+				C2B46E7526B1B49900F92B2C /* dbHelper.swift */,
+			);
+			path = database;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -319,11 +333,13 @@
 			buildActionMask = 2147483647;
 			files = (
 				C22103B72623799700B28553 /* StatusView.swift in Sources */,
+				C2B46E7326B1B06100F92B2C /* PeripheralModel.xcdatamodeld in Sources */,
 				C2426723262A0A7F00517496 /* BluetoothsView.swift in Sources */,
 				C2210380262373D100B28553 /* ContentView.swift in Sources */,
 				C22103BC262379E000B28553 /* TimerView.swift in Sources */,
 				C2A1AFF1268253A30095719E /* PeripheralViewModel.swift in Sources */,
 				C221037E262373D100B28553 /* GardenConfiguratorApp.swift in Sources */,
+				C2B46E7626B1B49900F92B2C /* dbHelper.swift in Sources */,
 				C269F738262CD0D400AB532E /* ViewModelFactory.swift in Sources */,
 				C2426729262A0BC100517496 /* BluetoothsViewModel.swift in Sources */,
 				C2A1AFE92682500E0095719E /* MockPeripheral.swift in Sources */,
@@ -644,6 +660,19 @@
 			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
+
+/* Begin XCVersionGroup section */
+		C2B46E7126B1B06100F92B2C /* PeripheralModel.xcdatamodeld */ = {
+			isa = XCVersionGroup;
+			children = (
+				C2B46E7226B1B06100F92B2C /* PeripheralModel.xcdatamodel */,
+			);
+			currentVersion = C2B46E7226B1B06100F92B2C /* PeripheralModel.xcdatamodel */;
+			path = PeripheralModel.xcdatamodeld;
+			sourceTree = "<group>";
+			versionGroupType = wrapper.xcdatamodel;
+		};
+/* End XCVersionGroup section */
 	};
 	rootObject = C2210372262373D100B28553 /* Project object */;
 }

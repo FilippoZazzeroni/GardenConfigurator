@@ -12,10 +12,10 @@ import Combine
 
 class BluetoothsViewModel: ObservableObject {
     
-    @Published var devices: [CBPeripheral] = []
+    @Published var devices: [MockPeripheral] = []
     
     /// selcted device from list of [devices] used to track sheet changes
-    @Published var selectedDevice: CBPeripheral?
+    @Published var selectedDevice: MockPeripheral?
     
     private let bleController: BleContoller
     
@@ -26,13 +26,14 @@ class BluetoothsViewModel: ObservableObject {
         self.bleController = bleController
         
         // mock devices 
-        for i in 1...3 {
-            self.devices.append(MockPeripheral(name: "Test\(i)", state: .disconnected))
+        for i in 1...4 {
+            self.devices.append(MockPeripheral(name: "Test\(i)", id: i))
         }
         // mi metto in ascolto dell aggiornamento sui devices
-        self.subscription = self.bleController.onDiscoverPublisher?.sink(receiveValue: { devices in
-            self.devices = devices
-        })
+        #warning("TODO add in production")
+//        self.subscription = self.bleController.onDiscoverPublisher?.sink(receiveValue: { devices in
+//            self.devices = devices
+//        })
     }
     
     deinit {

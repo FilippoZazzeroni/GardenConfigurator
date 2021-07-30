@@ -53,15 +53,17 @@ class BleContoller: NSObject, CBCentralManagerDelegate {
     }
     
     /**
-            - Parameters:
-                - isMock: true means it is a mocck state 
-                - peripheral: device to connect
-    */
-    func connect(peripheral: CBPeripheral, isMock: Bool = false) -> Any {
+     - Parameters:
+     - isMock: true means it is a mocck state
+     - peripheral: device to connect
+     */
+    #warning("TODO Da refattorizzare correttamente")
+    func connect(peripheral: CBPeripheral?, mockPeripheral: MockPeripheral?, isMock: Bool = false) -> Any {
         if isMock {
-            // nel caso di mock name non puo essere nulla
-            let mockPeripheral = MockPeripheral(name: peripheral.name!, state: .connected)
-            return mockPeripheral
+            
+            mockPeripheral!.state = .connected
+            
+            return mockPeripheral!
         } else {
             #warning("da implementare")
             return "To be implemented"
@@ -79,9 +81,8 @@ class BleContoller: NSObject, CBCentralManagerDelegate {
     
 }
 
-
 extension CBPeripheral: Identifiable {
-        
+    
     /// return string of the connection state of pheripheral
     func getConnectionStateString() -> String {
         switch self.state {

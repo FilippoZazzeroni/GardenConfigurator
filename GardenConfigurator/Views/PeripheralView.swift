@@ -12,7 +12,7 @@ struct PeripheralView: View {
     
     @ObservedObject var viewModel: PeripheralViewModel
     
-
+    
     var body: some View {
         
         NavigationView{
@@ -61,11 +61,18 @@ struct PeripheralView: View {
                 
                 
                 
-            }.navigationTitle(Text("\(self.viewModel.device.name == nil ? "not known" : self.viewModel.device.name!)"))
-            .navigationBarItems(trailing: Button(action: {}) {
+                
+                
+            }.navigationTitle(Text(self.viewModel.device.name))
+            .navigationBarItems(trailing: Button(action: {
+                self.viewModel.isSaveAlertShown = !self.viewModel.isSaveAlertShown
+            }){
                 Image(systemName: "square.and.arrow.up")
-            })
-            #warning("TODO: insert closure to button to save device")
+            }.alert(isPresented: self.$viewModel.isSaveAlertShown, content: {
+                Alert(title: Text("Save the device"), primaryButton: .default(Text("Ok"), action: {
+                    self.viewModel.saveDevice()
+                }), secondaryButton: .cancel())
+            }))
             
             
         }
@@ -75,6 +82,6 @@ struct PeripheralView: View {
 
 struct PeripheralView_Previews: PreviewProvider {
     static var previews: some View {
-        PeripheralView(viewModel: ViewModelFactory.makePeripheralViewModel(device:  MockPeripheral(name: "Test", state: .disconnected)))
+        PeripheralView(viewModel: ViewModelFactory.makePeripheralViewModel(device:  MockPeripheral(name: "Test", id: 1)))
     }
 }

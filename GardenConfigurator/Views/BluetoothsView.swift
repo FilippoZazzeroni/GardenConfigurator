@@ -24,9 +24,9 @@ struct BluetoothsView: View {
                         Button(action: {
                             self.viewModel.selectedDevice = device
                         }) {
-                            HStack {
-                                Text("\(device.name == nil ? "not known" : device.name!)")
-                            }
+                            
+                                Text(device.name)
+                            
                         }.sheet(item: self.$viewModel.selectedDevice, content: { selectedDevice in
                             
                             PeripheralView(viewModel: ViewModelFactory.makePeripheralViewModel(device: selectedDevice))

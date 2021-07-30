@@ -9,21 +9,23 @@ import Foundation
 import CoreBluetooth
 
 
+
+
 /// mock bluetooth pheripheral
-class MockPeripheral: CBPeripheral {
+class MockPeripheral: Identifiable {
+    
+    init(name: String, id: Int) {
+        self.name = name
+        self.id = id
+    }
+    
+    let id: Int
     
     /// returns [mockState]
-    override var state: CBPeripheralState { return mockState }
-    
-    private let mockName: String
-    
-    private var mockState: CBPeripheralState
+    var state: CBPeripheralState = .disconnected
     
     /// override of the [CBPeripheral] name getter returns [mockName]
-    override var name: String { return mockName }
+    let name: String
     
-    init(name: String, state: CBPeripheralState) {
-        self.mockName = name
-        self.mockState = state
-    }
 }
+
