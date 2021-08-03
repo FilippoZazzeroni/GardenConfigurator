@@ -13,7 +13,7 @@ struct GardenConfiguratorApp: App {
     var body: some Scene {
         
         WindowGroup {
-            ContentView(bluetoothsViewModel: ViewModelFactory.makeBluetoothViewModel())
+            ContentView(viewModel: ViewModelFactory.makeContentViewModel())
         }
     }
 }

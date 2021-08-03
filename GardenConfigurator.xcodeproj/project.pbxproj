@@ -13,8 +13,6 @@
 		C2210385262373D300B28553 /* Preview Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = C2210384262373D300B28553 /* Preview Assets.xcassets */; };
 		C2210390262373D400B28553 /* GardenConfiguratorTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = C221038F262373D400B28553 /* GardenConfiguratorTests.swift */; };
 		C221039B262373D400B28553 /* GardenConfiguratorUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = C221039A262373D400B28553 /* GardenConfiguratorUITests.swift */; };
-		C22103B72623799700B28553 /* StatusView.swift in Sources */ = {isa = PBXBuildFile; fileRef = C22103B62623799700B28553 /* StatusView.swift */; };
-		C22103BC262379E000B28553 /* TimerView.swift in Sources */ = {isa = PBXBuildFile; fileRef = C22103BB262379E000B28553 /* TimerView.swift */; };
 		C2426723262A0A7F00517496 /* BluetoothsView.swift in Sources */ = {isa = PBXBuildFile; fileRef = C2426722262A0A7F00517496 /* BluetoothsView.swift */; };
 		C2426729262A0BC100517496 /* BluetoothsViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = C2426728262A0BC100517496 /* BluetoothsViewModel.swift */; };
 		C242673A262A12E300517496 /* BleController.swift in Sources */ = {isa = PBXBuildFile; fileRef = C242672E262A0D8300517496 /* BleController.swift */; };
@@ -24,6 +22,12 @@
 		C2A1AFFE2682540C0095719E /* PeripheralView.swift in Sources */ = {isa = PBXBuildFile; fileRef = C2A1AFFD2682540C0095719E /* PeripheralView.swift */; };
 		C2B46E7326B1B06100F92B2C /* PeripheralModel.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = C2B46E7126B1B06100F92B2C /* PeripheralModel.xcdatamodeld */; };
 		C2B46E7626B1B49900F92B2C /* dbHelper.swift in Sources */ = {isa = PBXBuildFile; fileRef = C2B46E7526B1B49900F92B2C /* dbHelper.swift */; };
+		C2C7323B26B7FCE80021A1FF /* ContentViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = C2C7323A26B7FCE80021A1FF /* ContentViewModel.swift */; };
+		C2C7323D26B847EA0021A1FF /* NetworkService.swift in Sources */ = {isa = PBXBuildFile; fileRef = C2C7323C26B847EA0021A1FF /* NetworkService.swift */; };
+		C2C7324026B850330021A1FF /* NetworkProtocol.swift in Sources */ = {isa = PBXBuildFile; fileRef = C2C7323F26B850330021A1FF /* NetworkProtocol.swift */; };
+		C2C7324226B853A50021A1FF /* NetworkResponse.swift in Sources */ = {isa = PBXBuildFile; fileRef = C2C7324126B853A50021A1FF /* NetworkResponse.swift */; };
+		C2C7324426B94E0E0021A1FF /* RemoteDeviceStatusView.swift in Sources */ = {isa = PBXBuildFile; fileRef = C2C7324326B94E0E0021A1FF /* RemoteDeviceStatusView.swift */; };
+		C2C7324626B95CAD0021A1FF /* RemoteDeviceStatusViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = C2C7324526B95CAD0021A1FF /* RemoteDeviceStatusViewModel.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -56,8 +60,6 @@
 		C2210396262373D400B28553 /* GardenConfiguratorUITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = GardenConfiguratorUITests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		C221039A262373D400B28553 /* GardenConfiguratorUITests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GardenConfiguratorUITests.swift; sourceTree = "<group>"; };
 		C221039C262373D400B28553 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
-		C22103B62623799700B28553 /* StatusView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StatusView.swift; sourceTree = "<group>"; };
-		C22103BB262379E000B28553 /* TimerView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TimerView.swift; sourceTree = "<group>"; };
 		C2426722262A0A7F00517496 /* BluetoothsView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BluetoothsView.swift; sourceTree = "<group>"; };
 		C2426728262A0BC100517496 /* BluetoothsViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BluetoothsViewModel.swift; sourceTree = "<group>"; };
 		C242672E262A0D8300517496 /* BleController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = BleController.swift; path = GardenConfigurator/Helper/BleController.swift; sourceTree = SOURCE_ROOT; };
@@ -67,6 +69,12 @@
 		C2A1AFFD2682540C0095719E /* PeripheralView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PeripheralView.swift; sourceTree = "<group>"; };
 		C2B46E7226B1B06100F92B2C /* PeripheralModel.xcdatamodel */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcdatamodel; path = PeripheralModel.xcdatamodel; sourceTree = "<group>"; };
 		C2B46E7526B1B49900F92B2C /* dbHelper.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = dbHelper.swift; sourceTree = "<group>"; };
+		C2C7323A26B7FCE80021A1FF /* ContentViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContentViewModel.swift; sourceTree = "<group>"; };
+		C2C7323C26B847EA0021A1FF /* NetworkService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NetworkService.swift; sourceTree = "<group>"; };
+		C2C7323F26B850330021A1FF /* NetworkProtocol.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NetworkProtocol.swift; sourceTree = "<group>"; };
+		C2C7324126B853A50021A1FF /* NetworkResponse.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NetworkResponse.swift; sourceTree = "<group>"; };
+		C2C7324326B94E0E0021A1FF /* RemoteDeviceStatusView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RemoteDeviceStatusView.swift; sourceTree = "<group>"; };
+		C2C7324526B95CAD0021A1FF /* RemoteDeviceStatusViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RemoteDeviceStatusViewModel.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -159,10 +167,9 @@
 			isa = PBXGroup;
 			children = (
 				C221037F262373D100B28553 /* ContentView.swift */,
-				C22103B62623799700B28553 /* StatusView.swift */,
-				C22103BB262379E000B28553 /* TimerView.swift */,
 				C2426722262A0A7F00517496 /* BluetoothsView.swift */,
 				C2A1AFFD2682540C0095719E /* PeripheralView.swift */,
+				C2C7324326B94E0E0021A1FF /* RemoteDeviceStatusView.swift */,
 			);
 			path = Views;
 			sourceTree = "<group>";
@@ -173,6 +180,8 @@
 				C2426728262A0BC100517496 /* BluetoothsViewModel.swift */,
 				C269F737262CD0D400AB532E /* ViewModelFactory.swift */,
 				C2A1AFF0268253A30095719E /* PeripheralViewModel.swift */,
+				C2C7323A26B7FCE80021A1FF /* ContentViewModel.swift */,
+				C2C7324526B95CAD0021A1FF /* RemoteDeviceStatusViewModel.swift */,
 			);
 			path = ViewModels;
 			sourceTree = "<group>";
@@ -181,6 +190,7 @@
 			isa = PBXGroup;
 			children = (
 				C2A1AFE82682500E0095719E /* MockPeripheral.swift */,
+				C2C7324126B853A50021A1FF /* NetworkResponse.swift */,
 			);
 			path = Models;
 			sourceTree = "<group>";
@@ -188,6 +198,7 @@
 		C2426736262A105F00517496 /* Helper */ = {
 			isa = PBXGroup;
 			children = (
+				C2C7323E26B850160021A1FF /* network */,
 				C2B46E7426B1B06B00F92B2C /* database */,
 				C242672E262A0D8300517496 /* BleController.swift */,
 			);
@@ -201,6 +212,15 @@
 				C2B46E7526B1B49900F92B2C /* dbHelper.swift */,
 			);
 			path = database;
+			sourceTree = "<group>";
+		};
+		C2C7323E26B850160021A1FF /* network */ = {
+			isa = PBXGroup;
+			children = (
+				C2C7323C26B847EA0021A1FF /* NetworkService.swift */,
+				C2C7323F26B850330021A1FF /* NetworkProtocol.swift */,
+			);
+			path = network;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -332,16 +352,20 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				C22103B72623799700B28553 /* StatusView.swift in Sources */,
 				C2B46E7326B1B06100F92B2C /* PeripheralModel.xcdatamodeld in Sources */,
 				C2426723262A0A7F00517496 /* BluetoothsView.swift in Sources */,
 				C2210380262373D100B28553 /* ContentView.swift in Sources */,
-				C22103BC262379E000B28553 /* TimerView.swift in Sources */,
 				C2A1AFF1268253A30095719E /* PeripheralViewModel.swift in Sources */,
 				C221037E262373D100B28553 /* GardenConfiguratorApp.swift in Sources */,
 				C2B46E7626B1B49900F92B2C /* dbHelper.swift in Sources */,
 				C269F738262CD0D400AB532E /* ViewModelFactory.swift in Sources */,
 				C2426729262A0BC100517496 /* BluetoothsViewModel.swift in Sources */,
+				C2C7323D26B847EA0021A1FF /* NetworkService.swift in Sources */,
+				C2C7323B26B7FCE80021A1FF /* ContentViewModel.swift in Sources */,
+				C2C7324426B94E0E0021A1FF /* RemoteDeviceStatusView.swift in Sources */,
+				C2C7324626B95CAD0021A1FF /* RemoteDeviceStatusViewModel.swift in Sources */,
+				C2C7324226B853A50021A1FF /* NetworkResponse.swift in Sources */,
+				C2C7324026B850330021A1FF /* NetworkProtocol.swift in Sources */,
 				C2A1AFE92682500E0095719E /* MockPeripheral.swift in Sources */,
 				C242673A262A12E300517496 /* BleController.swift in Sources */,
 				C2A1AFFE2682540C0095719E /* PeripheralView.swift in Sources */,

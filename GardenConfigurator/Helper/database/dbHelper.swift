@@ -8,7 +8,16 @@
 import Foundation
 import CoreData
 
+//TODO: ottimizzare lettura e scrittura nel db
 class DbHelper {
+    
+    init() {
+        do {
+            _ = try self.readData()
+        } catch {
+            print(error)
+        }
+    }
     
     private let persitentContainer: NSPersistentContainer = {
         var loadError: Error?
@@ -24,16 +33,32 @@ class DbHelper {
         return container
     }()
     
+    private var peripherals: [Peripheral] = []
+    
     
     func createData(peripheralName: String) {
+        
+        //TODO: fare comparazione non sul nome
+        // check if item was just stored
+        let isItemStored = peripherals.contains(where: {item in
+            return item.name == peripheralName
+        })
+        
+        if isItemStored {
+            //TODO: capire se fare error handling o come notificare l'interfaccia che è gia salvato il device
+            return
+        }
+        
         let context = persitentContainer.viewContext
         
         // entity can't be nil beacuse it exists
         let entity = NSEntityDescription.entity(forEntityName: "Peripheral", in: context)
         
-        let periphreal = NSManagedObject.init(entity: entity!, insertInto: context)
+        let peripheral = NSManagedObject.init(entity: entity!, insertInto: context)
         
-        periphreal.setValue(peripheralName, forKey: "name")
+        peripheral.setValue(peripheralName, forKey: "name")
+        
+        
         
         do {
             guard !context.hasChanges else {
@@ -51,19 +76,33 @@ class DbHelper {
     /// read all data saved in the db
     //TODO: capire il dato da salvare
     func readData() throws -> [Peripheral] {
-        let context = persitentContainer.viewContext
-        
-        // can't be nil
-        let entity = NSEntityDescription.entity(forEntityName: "Peripheral", in: context)
-        
+            
         do {
-            let peripherals = try persitentContainer.viewContext.fetch(NSFetchRequest(entityName: "Peripheral"))
-            return peripherals as! [Peripheral]
+            let peripherals = try persitentContainer.viewContext.fetch(NSFetchRequest(entityName: "Peripheral")) as! [Peripheral]
+            self.peripherals = peripherals
+            return peripherals
         } catch let error as NSError {
             throw error
         }
         
     }
     
+    func deleteData(peripheral: Peripheral) {
+        
+        let context = persitentContainer.viewContext
+        
+        context.delete(peripheral)
+        
+        do {
+            guard !context.hasChanges else {
+                try context.save()
+                return
+            }
+            
+        } catch let error as NSError {
+            //TODO: handle error
+            print(error.userInfo)
+        }
+    }
     
 }

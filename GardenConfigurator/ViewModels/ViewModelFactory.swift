@@ -11,10 +11,15 @@ import CoreBluetooth
 /// creates view models and controllers
 class ViewModelFactory {
     
-    /// instaciate controller
-    static let bleController = BleContoller()
+    // instaciate controller
+    static private let bleController = BleContoller()
     
-    static let dbHelper = DbHelper()
+    static private let dbHelper = DbHelper()
+    
+    static func makeContentViewModel() -> ContentViewModel {
+        // inject the controller here
+        return ContentViewModel(dbHelper: dbHelper)
+    }
     
     static func makeBluetoothViewModel() -> BluetoothsViewModel {
         // inject the controller here
@@ -25,5 +30,8 @@ class ViewModelFactory {
         return PeripheralViewModel(device: device, bleController: bleController, dbHelper: dbHelper)
     }
     
-    //TODO implement make view model func for other class
+    static func makeRemoteDeviceStatusViewModel() -> RemoteDeviceStatusViewModel {
+        return RemoteDeviceStatusViewModel()
+    }
+
 }
