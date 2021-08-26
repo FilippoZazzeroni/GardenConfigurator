@@ -34,7 +34,7 @@ struct ContentView: View {
                 } else {
                     List {
                         ForEach(self.viewModel.devices, content: { device in
-                            NavigationLink("\(device.name ?? "unknown")", destination: RemoteDeviceStatusView())
+                            NavigationLink("\(device.name ?? "unknown")", destination: RemoteDeviceStatusView(viewModel: ViewModelFactory.makeRemoteDeviceStatusViewModel()))
                         }).onDelete(perform: { index in
                             print("trying to delette")
                         })
@@ -46,7 +46,7 @@ struct ContentView: View {
             .navigationBarItems(trailing: Button(action: {
                 isPresented.toggle()
             }){
-                Image(systemName: "plus")
+                Image(systemName: "plus").resizable().frame(width: 20, height: 20, alignment: /*@START_MENU_TOKEN@*/.center/*@END_MENU_TOKEN@*/)
             }).sheet(isPresented: $isPresented, onDismiss: self.viewModel.readData ,content: {
                 BluetoothsView(viewModel: ViewModelFactory.makeBluetoothViewModel())
             })

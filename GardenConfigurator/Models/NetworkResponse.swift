@@ -7,11 +7,47 @@
 
 import Foundation
 
-struct NetworkResponse: Codable {
+protocol NetworkResponse {
     /// time in unix time stamp
-    let timeStart: Int
+    var timeStart: Double {get set}
     /// time in unix time stamp
-    let timeEnd: Int
+    var timeEnd: Double {get set}
     /// status of the device
-    let status: String
+    var status: String {get set}
+    
+    
+}
+
+extension NetworkResponse {
+    var dateStart: Date {
+        get {
+            return Date.init(timeIntervalSince1970: timeStart)
+        }
+    }
+    
+    var dateEnd: Date {
+        get {
+            return Date.init(timeIntervalSince1970: timeEnd)
+        }
+    }
+}
+
+/// Representation of successfull response from the network call.
+/// The only way to instanciate this response is through the from decoder inti
+struct SuccessfullResponse: NetworkResponse, Codable {
+    var timeStart: Double
+    
+    var timeEnd: Double
+    
+    var status: String
+
+}
+
+/// representation of offilne response from the network call
+struct OfflineResponse: NetworkResponse {
+    var timeStart: Double = 0
+    
+    var timeEnd: Double = 0
+    
+    var status: String = "Offline"
 }

@@ -43,7 +43,9 @@ struct BluetoothsView: View {
                 viewModel.scan()
             }) {
                 Image(systemName: "arrow.clockwise")
-            })
+            }
+            
+            )
         }
         
     }

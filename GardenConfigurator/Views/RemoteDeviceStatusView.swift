@@ -9,6 +9,8 @@ import SwiftUI
 
 struct RemoteDeviceStatusView: View {
     
+    @ObservedObject var viewModel: RemoteDeviceStatusViewModel
+    
     @State private var isFirstTabSelected = true
     
     var body: some View {
@@ -20,7 +22,12 @@ struct RemoteDeviceStatusView: View {
             .padding(EdgeInsets.init(top: 16.0, leading: 16.0, bottom: .zero, trailing: 16.0))
             
             if isFirstTabSelected {
-                StatusView()
+                if viewModel.isLoading {
+                    ProgressView()
+                } else {
+                    StatusView(response: viewModel.response)
+                }
+                
             } else {
                 TimerView()
             }
@@ -54,10 +61,17 @@ struct TimerView: View {
 }
 
 struct StatusView: View {
+    
+    let response: NetworkResponse
+    
     var body: some View {
-        Text("to develop")
+        Text(response.status)
     }
 }
 
-
+struct RemoteDeviceStatus_Preview: PreviewProvider {
+    static var previews: some View {
+        RemoteDeviceStatusView(viewModel: ViewModelFactory.makeRemoteDeviceStatusViewModel())
+    }
+}
 

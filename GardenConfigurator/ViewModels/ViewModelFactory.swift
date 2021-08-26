@@ -31,7 +31,7 @@ class ViewModelFactory {
     }
     
     static func makeRemoteDeviceStatusViewModel() -> RemoteDeviceStatusViewModel {
-        return RemoteDeviceStatusViewModel()
+        return RemoteDeviceStatusViewModel(networkService: NetworkService())
     }
 
 }
